@@ -68,8 +68,7 @@ public class InventoryManagement {
     }
 
     public void setTypeEquipment(Scanner scanner, int i, SportsEquipment[] sportsEquipments) {
-        String string;
-        short typeNumber = -1;
+        int typeNumber = -1;
         System.out.print("Введите тип инвентаря: \n" +
                 "1.Волейбольный мяч\n" +
                 "2.Теннисный мяч\n" +
@@ -78,9 +77,7 @@ public class InventoryManagement {
                 "5.Гиря\n" +
                 "6.Метательное копье\n");
         do {
-            string = scanner.nextLine();
-            string = InventoryManagement.returnFirstNumber(string);
-            typeNumber = Short.parseShort(string);
+            typeNumber = getInt(scanner);
             switch (typeNumber) {
                 case 1 -> {
                     System.out.println("Вы выбрали волейбольный мяч. \n");

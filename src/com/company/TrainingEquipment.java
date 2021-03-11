@@ -3,19 +3,16 @@ package com.company;
 import java.util.Scanner;
 
 public class TrainingEquipment extends SportsEquipment {
-    private float weight;
+    private int weight;
     private String matherial;
 
     @Override
     protected void init(Scanner scanner) {
         super.init(scanner);
-        String string;
         do {
             System.out.print("Вес оборудования (кг): ");
-            string = scanner.nextLine();
-            string = InventoryManagement.returnFirstNumber(string);
             try {
-                this.weight = Short.parseShort(string);
+                this.weight = InventoryManagement.getInt(scanner);
             } catch (Exception e) {
                 this.weight = 0;
             }
@@ -59,7 +56,7 @@ public class TrainingEquipment extends SportsEquipment {
     }
     //Гиря
     static class Barbel extends TrainingEquipment {
-        float diametr;
+        int diametr;
         @Override
         protected void init(Scanner scanner) {
             super.init(scanner);

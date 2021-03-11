@@ -3,13 +3,13 @@ package com.company;
 import java.util.Scanner;
 
 public class Racket extends SportsEquipment {
-    private float weight;
-    private float length;
+    private int weight;
+    private int length;
     @Override
     protected void init(Scanner scanner) {
         super.init(scanner);
         do {
-            System.out.print("Вес ракетки: ");
+            System.out.print("Вес ракетки (г): ");
             try {
                 this.weight = InventoryManagement.getInt(scanner);
             } catch (Exception e) {

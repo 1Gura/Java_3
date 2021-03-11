@@ -3,8 +3,8 @@ package com.company;
 import java.util.Scanner;
 
 public class ThrowingSpear extends SportsEquipment {
-    private float weight;
-    private float length;
+    private int weight;
+    private int length;
 
     @Override
     protected void init(Scanner scanner) {

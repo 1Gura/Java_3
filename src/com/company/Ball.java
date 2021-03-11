@@ -36,8 +36,8 @@ abstract public class Ball extends SportsEquipment {
     }
 
     static class Volleyball extends Ball {
-        //Добавить уникальные свойства
-        float internalPressure;
+        //Давление внутри мяча
+        int internalPressure;
 
         @Override
         protected void init(Scanner scanner) {
