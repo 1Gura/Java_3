@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class InventoryManagement {
@@ -95,8 +96,18 @@ public class InventoryManagement {
     }
 
     public void outEquipmentAll(SportsEquipment[] sportsEquipments) {
+        System.out.println("Вывод всего оборудования.");
         for (SportsEquipment equipment : sportsEquipments) {
             System.out.println(equipment.toString());
+        }
+    }
+
+    public void outEquipmentTennis(SportsEquipment[] sportsEquipments) {
+        System.out.println("Вывод теннисного оборудования.");
+        for (SportsEquipment equipment : sportsEquipments) {
+            if (equipment.getSportType().toLowerCase(Locale.ROOT).equals("теннис")) {
+                System.out.println(equipment.toString());
+            }
         }
     }
 }

@@ -10,6 +10,6 @@ public class Main {
         SportsEquipment []sportsEquipments = new SportsEquipment[inventoryManagement.setCountEquipment(scanner)];
         inventoryManagement.putEquipmentItem(scanner, sportsEquipments);
         inventoryManagement.outEquipmentAll(sportsEquipments);
-//        inventoryManagement.outTennisInventory();
+        inventoryManagement.outEquipmentTennis(sportsEquipments);
     }
 }
