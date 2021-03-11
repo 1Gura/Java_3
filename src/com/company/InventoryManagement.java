@@ -24,12 +24,46 @@ public class InventoryManagement {
         return "";
     }
 
+    public static boolean isNumeric(String str) {
+        try {
+            Integer.parseInt(str);
+            return true;
+        } catch(NumberFormatException e){
+            return false;
+        }
+    }
+
+    public static int getInt(Scanner scanner) {
+        StringBuilder result = new StringBuilder();
+        String string = "";
+        while (true) {
+            string = scanner.nextLine();
+            string = string.replaceAll("\\D", "");
+            for (int i = 0; i < string.length(); i++) {
+                if (string.charAt(i) != ' ') {
+                    while (string.charAt(i) != ' ') {
+                        result.append(string.charAt(i));
+                        i++;
+                        if (i == string.length()) break;
+                    }
+                }
+            }
+            if(isNumeric(result.toString())) {
+                return Integer.parseInt(result.toString());
+            } else {
+                result.setLength(0);
+                System.out.print("Было введенно некорректное значение!\n\r Введите повторно:");
+            }
+        }
+
+    }
+
     public int setCountEquipment(Scanner scanner) {
         System.out.print("Введите кол-во предметов инвентаря: ");
         scanner = new Scanner(System.in);
-        String string = scanner.nextLine();
-        string = InventoryManagement.returnFirstNumber(string);
-        this.countEquipment = Integer.parseInt(string);
+        //String string = scanner.nextLine();
+
+        this.countEquipment = getInt(scanner);
         return this.countEquipment;
     }
 

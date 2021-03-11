@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 abstract public class Ball extends SportsEquipment {
 
-    private float diameter;
-    private short weight;
+    private int diameter;
+    private int weight;
 
     @Override
     protected void init(Scanner scanner) {
@@ -13,20 +13,16 @@ abstract public class Ball extends SportsEquipment {
         String string;
         do {
             System.out.print("Вес мяча в граммах: ");
-            string = scanner.nextLine();
-            string = InventoryManagement.returnFirstNumber(string);
             try {
-                weight = Short.parseShort(string);
+                weight = InventoryManagement.getInt(scanner);
             } catch (Exception e) {
                 weight = 0;
             }
         } while (weight < 0);
         do {
             System.out.print("Диаметр мяча в сантиметрах: ");
-            string = scanner.nextLine();
-            string = InventoryManagement.returnFirstNumber(string);
             try {
-                diameter = Short.parseShort(string);
+                diameter = InventoryManagement.getInt(scanner);
             } catch (Exception e) {
                 diameter = 0;
             }
@@ -47,12 +43,9 @@ abstract public class Ball extends SportsEquipment {
         protected void init(Scanner scanner) {
             super.init(scanner);
             do {
-                String string;
                 System.out.print("Внутреннее давление в гПа:  ");
-                string = scanner.nextLine();
-                string = InventoryManagement.returnFirstNumber(string);
                 try {
-                    this.internalPressure = Float.parseFloat(string);
+                    this.internalPressure = InventoryManagement.getInt(scanner);
                 } catch (Exception e) {
                     this.internalPressure = 0;
                 }
@@ -86,7 +79,7 @@ abstract public class Ball extends SportsEquipment {
         @Override
         public String toString() {
             String str = super.toString();
-            return ( "Теннисный мяч" + str + "Цвет теннисного мяча: " + this.color);
+            return ( "Теннисный мяч" + str + "\n\tЦвет теннисного мяча: " + this.color);
         }
     }
 }

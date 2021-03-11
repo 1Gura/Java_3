@@ -64,12 +64,9 @@ public class TrainingEquipment extends SportsEquipment {
         protected void init(Scanner scanner) {
             super.init(scanner);
             do {
-                String string;
                 System.out.print("Введите диаметр окружности гири: ");
-                string = scanner.nextLine();
-                string = InventoryManagement.returnFirstNumber(string);
                 try {
-                    this.diametr = Integer.parseInt(string);
+                    this.diametr = InventoryManagement.getInt(scanner);
                 } catch (Exception e) {
                     this.diametr = 0;
                 }

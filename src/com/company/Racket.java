@@ -8,13 +8,10 @@ public class Racket extends SportsEquipment {
     @Override
     protected void init(Scanner scanner) {
         super.init(scanner);
-        String string;
         do {
             System.out.print("Вес ракетки: ");
-            string = scanner.nextLine();
-            string = InventoryManagement.returnFirstNumber(string);
             try {
-                this.weight = Short.parseShort(string);
+                this.weight = InventoryManagement.getInt(scanner);
             } catch (Exception e) {
                 this.weight = 0;
             }
@@ -22,10 +19,8 @@ public class Racket extends SportsEquipment {
 
         do {
             System.out.print("Длина ракетки (см): ");
-            string = scanner.nextLine();
-            string = InventoryManagement.returnFirstNumber(string);
             try {
-                this.length = Short.parseShort(string);
+                this.length = InventoryManagement.getInt(scanner);
             } catch (Exception e) {
                 this.length = 0;
             }
