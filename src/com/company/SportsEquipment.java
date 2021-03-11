@@ -18,7 +18,7 @@ abstract public class   SportsEquipment {
 
     @Override
     public String toString() {
-        return ("\n\t - Вид спорта: " + typeSport + "\n\t");
+        return ("\n\tВид спорта: " + typeSport);
     }
 
 

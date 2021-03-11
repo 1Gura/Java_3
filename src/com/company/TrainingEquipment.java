@@ -30,7 +30,7 @@ public class TrainingEquipment extends SportsEquipment {
     @Override
     public String toString() {
         String str = super.toString();
-        return (str + "\n\t - Вес: " + this.weight + " кг \n\t - материл: " + this.matherial + "\n\t");
+        return (str + "\n\tВес: " + this.weight + " кг \n\tМатерил: " + this.matherial);
     }
 
     static class Weight extends TrainingEquipment {
@@ -54,7 +54,7 @@ public class TrainingEquipment extends SportsEquipment {
         @Override
         public String toString() {
             String str = super.toString();
-            return (str + "\nЦена оборудования: " + this.price);
+            return ("Штанга" + str + "\n\tЦена оборудования: " + this.price);
         }
     }
     //Гиря
@@ -78,7 +78,7 @@ public class TrainingEquipment extends SportsEquipment {
         @Override
         public String toString() {
             String str = super.toString();
-            return (str + "\nДиаметрг окружности гири: " + this.diametr);
+            return ("Гиря" + str + "\n\tДиаметрг окружности гири: " + this.diametr + "см");
         }
     }
 }

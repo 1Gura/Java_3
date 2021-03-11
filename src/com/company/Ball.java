@@ -36,7 +36,7 @@ abstract public class Ball extends SportsEquipment {
     @Override
     public String toString() {
         String str = super.toString();
-        return ("\nМяч: " + str + "\n\t - Вес: " + weight + " г \n\t - Диаметр: " + diameter + " см \n\t");
+        return (str + "\n\tВес: " + weight + " г \n\tДиаметр: " + diameter + " см");
     }
 
     static class Volleyball extends Ball {
@@ -48,21 +48,21 @@ abstract public class Ball extends SportsEquipment {
             super.init(scanner);
             do {
                 String string;
-                System.out.print("Внутреннее давление в кг/см2:  ");
+                System.out.print("Внутреннее давление в гПа:  ");
                 string = scanner.nextLine();
                 string = InventoryManagement.returnFirstNumber(string);
                 try {
-                    this.internalPressure = Float.parseFloat(string) / 10;
+                    this.internalPressure = Float.parseFloat(string);
                 } catch (Exception e) {
                     this.internalPressure = 0;
                 }
-            } while (!(this.internalPressure > 0 && this.internalPressure < 1));
+            } while (!(this.internalPressure > 0 ));
         }
 
         @Override
         public String toString() {
             String str = super.toString();
-            return (str + "\nЦвет теннисного мяца: " + this.internalPressure);
+            return ("Волейбольный мяч" + str + "\n\tВнутреннее давление в гПа: " + this.internalPressure);
         }
 
         public Volleyball() {
@@ -86,7 +86,7 @@ abstract public class Ball extends SportsEquipment {
         @Override
         public String toString() {
             String str = super.toString();
-            return (str + "\nЦвет теннисного мяца: " + this.color);
+            return ( "Теннисный мяч" + str + "Цвет теннисного мяча: " + this.color);
         }
     }
 }

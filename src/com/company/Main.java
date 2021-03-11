@@ -9,6 +9,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         SportsEquipment []sportsEquipments = new SportsEquipment[inventoryManagement.setCountEquipment(scanner)];
         inventoryManagement.putEquipmentItem(scanner, sportsEquipments);
+        inventoryManagement.outEquipmentAll(sportsEquipments);
 //        inventoryManagement.outTennisInventory();
     }
 }

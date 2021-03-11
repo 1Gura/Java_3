@@ -37,6 +37,6 @@ public class ThrowingSpear extends SportsEquipment {
     @Override
     public String toString() {
         String str = super.toString();
-        return (str + "\nВес копья: " + this.weight + "длина копья" + this.length);
+        return ("Копье метательное" + str + "\n\tВес копья: " + this.weight + "\n\tДлина копья: " + this.length);
     }
 }

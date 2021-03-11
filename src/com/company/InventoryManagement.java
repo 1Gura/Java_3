@@ -8,7 +8,7 @@ public class InventoryManagement {
 
     static String returnFirstNumber(String string) {
         StringBuilder result = new StringBuilder();
-        string = string.replaceAll("\\D", " ");
+        string = string.replaceAll("^.\\D", " ");
         for (int i = 0; i < string.length(); i++) {
             if (string.charAt(i) != ' ') {
                 while (string.charAt(i) != ' ') {
@@ -47,50 +47,56 @@ public class InventoryManagement {
             string = InventoryManagement.returnFirstNumber(string);
             typeNumber = Short.parseShort(string);
             switch (typeNumber) {
-                case 0 : {
+                case 1 -> {
                     System.out.println("Вы выбрали волейбольный мяч. \n");
                     Ball.Volleyball volleyball = new Ball.Volleyball();
                     volleyball.init(scanner);
                     sportsEquipments[i] = volleyball;
-                }break;
-                case 1 : {
+                }
+                case 2 -> {
                     System.out.println("Вы выбрали теннисный мяч. \n");
                     Ball.TennisBall tennisBall = new Ball.TennisBall();
                     tennisBall.init(scanner);
                     sportsEquipments[i] = tennisBall;
-                }break;
-                case 2 : {
+                }
+                case 3 -> {
                     System.out.println("Вы выбрали ракетку. \n");
                     Racket racket = new Racket();
                     racket.init(scanner);
                     sportsEquipments[i] = racket;
-                }break;
-                case 3 : {
+                }
+                case 4 -> {
                     System.out.println("Вы выбрали штангу. \n");
-                    TrainingEquipment.Weight weight = new TrainingEquipment.Weight ();
+                    TrainingEquipment.Weight weight = new TrainingEquipment.Weight();
                     weight.init(scanner);
                     sportsEquipments[i] = weight;
-                }break;
-                case 4 : {
+                }
+                case 5 -> {
                     System.out.println("Вы выбрали гирю. \n");
                     TrainingEquipment.Barbel barbel = new TrainingEquipment.Barbel();
                     barbel.init(scanner);
                     sportsEquipments[i] = barbel;
-                }break;
-                case 5 : {
+                }
+                case 6 -> {
                     System.out.println("Вы выбрали метательное копье. \n");
                     ThrowingSpear throwingSpear = new ThrowingSpear();
                     throwingSpear.init(scanner);
                     sportsEquipments[i] = throwingSpear;
-                }break;
+                }
             }
 
-        }while (!(typeNumber >=0 && typeNumber <=6));
+        } while (!(typeNumber >= 0 && typeNumber <= 6));
     }
 
-    public void putEquipmentItem(Scanner scanner, SportsEquipment[]  sportsEquipments) {
+    public void putEquipmentItem(Scanner scanner, SportsEquipment[] sportsEquipments) {
         for (int i = 0; i < this.countEquipment; i++) {
             this.setTypeEquipment(scanner, i, sportsEquipments);
+        }
+    }
+
+    public void outEquipmentAll(SportsEquipment[] sportsEquipments) {
+        for (SportsEquipment equipment : sportsEquipments) {
+            System.out.println(equipment.toString());
         }
     }
 }

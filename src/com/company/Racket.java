@@ -35,6 +35,6 @@ public class Racket extends SportsEquipment {
     @Override
     public String toString() {
         String str = super.toString();
-        return (str + "\nВес ракетки: " + this.weight + "длина ракетки" + this.length);
+        return ("Ракетка" + str + "\n\tВес ракетки: " + this.weight + "\n\tДлина ракетки: " + this.length);
     }
 }
