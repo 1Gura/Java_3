@@ -20,7 +20,4 @@ abstract public class   SportsEquipment {
     public String toString() {
         return ("\n\tВид спорта: " + typeSport);
     }
-
-
-
 }
