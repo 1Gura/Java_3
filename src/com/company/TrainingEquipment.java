@@ -37,12 +37,9 @@ public class TrainingEquipment extends SportsEquipment {
         protected void init(Scanner scanner) {
             super.init(scanner);
             do {
-                String string;
-                System.out.print("Введите цену оборудования: ");
-                string = scanner.nextLine();
-                string = InventoryManagement.returnFirstNumber(string);
+                System.out.print("Введите цену оборудования (руб) : ");
                 try {
-                    this.price = Integer.parseInt(string);
+                    this.price = InventoryManagement.getInt(scanner);
                 } catch (Exception e) {
                     this.price = 0;
                 }
@@ -51,7 +48,7 @@ public class TrainingEquipment extends SportsEquipment {
         @Override
         public String toString() {
             String str = super.toString();
-            return ("Штанга" + str + "\n\tЦена оборудования: " + this.price);
+            return ("Штанга" + str + "\n\tЦена оборудования (руб) : " + this.price);
         }
     }
     //Гиря

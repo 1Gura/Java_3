@@ -1,29 +1,10 @@
 package com.company;
 
-import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
 public class InventoryManagement {
     private int countEquipment;
-
-    static String returnFirstNumber(String string) {
-        StringBuilder result = new StringBuilder();
-        string = string.replaceAll("^.\\D", " ");
-        for (int i = 0; i < string.length(); i++) {
-            if (string.charAt(i) != ' ') {
-                while (string.charAt(i) != ' ') {
-                    //result += string.charAt(i);
-                    result.append(string.charAt(i));
-                    i++;
-                    if (i == string.length()) break;
-                }
-                return result.toString();
-            }
-        }
-        return "";
-    }
-
     public static boolean isNumeric(String str) {
         try {
             Integer.parseInt(str);
@@ -34,35 +15,32 @@ public class InventoryManagement {
     }
 
     public static int getInt(Scanner scanner) {
-        StringBuilder result = new StringBuilder();
-        String string = "";
         while (true) {
-            string = scanner.nextLine();
-            string = string.replaceAll("\\D", "");
-            for (int i = 0; i < string.length(); i++) {
-                if (string.charAt(i) != ' ') {
-                    while (string.charAt(i) != ' ') {
-                        result.append(string.charAt(i));
-                        i++;
-                        if (i == string.length()) break;
-                    }
+            String string = scanner.nextLine();
+            string = string.replaceAll("\\D", " ");
+            String []strArray = string.split(" ");
+            int firstNumber = 0;
+            for(int i = 0; i < strArray.length; i++ ) {
+                if(isNumeric(strArray[i])) {
+                    firstNumber = Integer.parseInt(strArray[i]);
+                    break;
                 }
             }
-            if(isNumeric(result.toString())) {
-                return Integer.parseInt(result.toString());
+            if(firstNumber>0) {
+                return firstNumber;
             } else {
-                result.setLength(0);
                 System.out.print("Было введенно некорректное значение!\n\r Введите повторно:");
             }
         }
+    }
 
+    public int outCountEquipment() {
+        return this.countEquipment;
     }
 
     public int setCountEquipment(Scanner scanner) {
         System.out.print("Введите кол-во предметов инвентаря: ");
         scanner = new Scanner(System.in);
-        //String string = scanner.nextLine();
-
         this.countEquipment = getInt(scanner);
         return this.countEquipment;
     }

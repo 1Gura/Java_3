@@ -12,7 +12,7 @@ abstract public class Ball extends SportsEquipment {
         super.init(scanner);
         String string;
         do {
-            System.out.print("Вес мяча в граммах: ");
+            System.out.print("Вес мяча (г): ");
             try {
                 weight = InventoryManagement.getInt(scanner);
             } catch (Exception e) {
@@ -20,7 +20,7 @@ abstract public class Ball extends SportsEquipment {
             }
         } while (weight < 0);
         do {
-            System.out.print("Диаметр мяча в сантиметрах: ");
+            System.out.print("Диаметр мяча (см): ");
             try {
                 diameter = InventoryManagement.getInt(scanner);
             } catch (Exception e) {
